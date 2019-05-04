@@ -28,7 +28,7 @@ const arrify = (...args) => {
       return Array.prototype.slice.call(value);
     }
 
-    if (typeof value === 'string') {
+    if (typeof value === 'string' && arrify.config.splitString) {
       return value.length === 0 ? [''] : value.split('');
     }
 
@@ -36,6 +36,10 @@ const arrify = (...args) => {
   }
 
   return args;
+};
+
+arrify.config = {
+  splitString: true,
 };
 
 module.exports = arrify;

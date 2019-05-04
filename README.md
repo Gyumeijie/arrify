@@ -27,6 +27,10 @@ arrify(1, 2, 3);
 arrify('string');
 // ['s', 't', 'r', 'i', 'n', 'g']
 
+arrify.config = { splitString: false };
+arrify('string');
+// ['sting']
+
 arrify([])
 // []
 

@@ -4,6 +4,10 @@ describe('arrify a string', () => {
   test('non-empty string', () => {
     expect(arrify('string')).toEqual(['s', 't', 'r', 'i', 'n', 'g']);
   });
+  test('non-empty string with splitString(false)', () => {
+    arrify.config = { splitString: false };
+    expect(arrify('string')).toEqual(['string']);
+  });
   test('empty string', () => {
     expect(arrify('')).toEqual(['']);
   });
