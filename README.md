@@ -46,4 +46,4 @@ arrify(undefined)
 
 ## License
 
-MIT © Gyumeijie
+MIT © [Gyumeijie](https://github.com/Gyumeijie)
