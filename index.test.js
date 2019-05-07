@@ -5,7 +5,7 @@ describe('arrify a string', () => {
     expect(arrify('string')).toEqual(['s', 't', 'r', 'i', 'n', 'g']);
   });
   test('non-empty string with splitString(false)', () => {
-    arrify.config = { splitString: false };
+    arrify.config.splitString = false;
     expect(arrify('string')).toEqual(['string']);
   });
   test('empty string', () => {
@@ -40,7 +40,15 @@ describe('arrify object', () => {
       1: 'one',
       length: 3,
     };
+
+    arrify.config.arraySimilarity = 2;
     expect(arrify(obj)).toEqual([{ 0: 'zero', 1: 'one', length: 3 }]);
+
+    arrify.config.arraySimilarity = 1;
+    expect(arrify(obj)).toEqual([{ 0: 'zero', 1: 'one', length: 3 }]);
+
+    arrify.config.arraySimilarity = 0;
+    expect(arrify(obj)).toEqual(['zero', 'one', undefined]);
   });
 
   test('other objects', () => {

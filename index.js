@@ -1,19 +1,10 @@
 'use strict';
 
+import isArrayLike from '@gyumeijie/is-array-like';
+
 const isObject = (value) => {
   const type = typeof value;
   return value !== null && (type === 'object' || type === 'function');
-};
-
-const isArrayLike = (obj) => {
-  if (obj.hasOwnProperty('length') && typeof obj !== 'function') {
-    for (let i = 0; i < obj.length; i++) {
-      if (!obj.hasOwnProperty(i)) return false;
-    }
-    return true;
-  }
-
-  return false;
 };
 
 const arrify = (...args) => {
@@ -24,7 +15,7 @@ const arrify = (...args) => {
       return [];
     }
 
-    if (isObject(value) && isArrayLike(value)) {
+    if (isObject(value) && isArrayLike(value, arrify.config.arraySimilarity)) {
       return Array.prototype.slice.call(value);
     }
 
@@ -40,6 +31,7 @@ const arrify = (...args) => {
 
 arrify.config = {
   splitString: true,
+  arraySimilarity: 2,
 };
 
-module.exports = arrify;
+export default arrify;
