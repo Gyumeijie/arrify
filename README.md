@@ -29,14 +29,14 @@ const obj = {
 
 arrify.config.arraySimilarity = 2;
 arrify(obj);
-// { 0: 'zero', 1: 'one', length: 3 };
+// [{ 0: 'zero', 1: 'one', length: 3 }]
 arrify.config.arraySimilarity = 1;
 arrify(obj);
-// [0: 'zero', 1: 'one', length: 3 }]
+// [{ 0: 'zero', 1: 'one', length: 3 }]
 
 arrify.config.arraySimilarity = 0;
 arrify(obj);
-// (['zero', 'one', undefined]
+// ['zero', 'one', undefined]
 
 arrify(1, 2, 3);
 // [1, 2, 3]
