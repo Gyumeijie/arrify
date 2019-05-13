@@ -70,10 +70,10 @@ arrify.config = {
 };
 ```
 splitString:  
->true | false, and `true` is the default
+>true | false, defaults to `true`
 
 [arraySimilarity](https://github.com/Gyumeijie/isArrayLike):
-> 0 | 1 | 2, and `2` is the default
+> 0 | 1 | 2,  defaults to `2`
 
 
 ## License
